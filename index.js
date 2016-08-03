@@ -18,11 +18,11 @@ app.get('/', function(request, response) {
 app.get('/cool', function(request, response) {
   response.send(cool());
 });
-/*
+
 app.get('/lab8', function(request, response) {
-  response.render('public/lab8');
+  response.render('lab8.html');
 });
-*/
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

@@ -19,7 +19,7 @@ app.get('/cool', function(request, response) {
 });
 
 app.get('/lab8', function(request, response) {
-  response.render('public/index.html');
+  response.render('public/index');
 });
 
 app.listen(app.get('port'), function() {

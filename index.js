@@ -18,7 +18,7 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
-app.get('/lab8', function() {
+app.get('/lab8', function(request, response) {
   response.sendFile(__dirname + '/public/lab8.html');
 });
 

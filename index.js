@@ -20,7 +20,7 @@ app.get('/cool', function(request, response) {
 });
 
 app.get('/lab8', function(request, response) {
-  response.render('lab8.html');
+  response.sendFile(/public/lab8.html);
 });
 
 app.listen(app.get('port'), function() {

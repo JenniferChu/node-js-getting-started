@@ -4,7 +4,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-//app.use('/lab8', express.static('public'));
+app.use('/lab8', express.static(__dirname + '/public'));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -19,8 +19,7 @@ app.get('/cool', function(request, response) {
 });
 
 app.get('/lab8', function() {
-  //response.sendFile(__dirname/public/lab8.html);
-  app.use(express.static(__dirname + '/public'));
+  response.sendFile(__dirname + '/public/lab8.html');
 });
 
 app.listen(app.get('port'), function() {

@@ -49,6 +49,8 @@ app.get('/redline.json', function(request, response) {
 	    		//console.log("[" + res.body + "]");
 	  		jsondata = res.body;
 	  	}
+	  	else
+	  		jsondata = "error: " + error + " status: " + res.statusCode;
 	});
 	/*
 	function get_schedule() {

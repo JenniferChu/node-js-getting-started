@@ -43,7 +43,7 @@ app.get('/redline.json', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-	var jsondata;
+	var jsondata = "Nothing was retrieved";
 	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
 	  	if (!error && res.statusCode == 200) {
 	    		//console.log("[" + res.body + "]");

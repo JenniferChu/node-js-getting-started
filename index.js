@@ -45,6 +45,7 @@ app.get('/redline.json', function(request, response) {
 
 	var jsondata = "Nothing was retrieved";
 	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
+		jsondata = "In needle.get";
 	  	if (!error && res.statusCode == 200) {
 	    		//console.log("[" + res.body + "]");
 	  		jsondata = res.body;

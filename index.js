@@ -40,27 +40,18 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/redline.json', function(request, response) {
-	//response.header("Access-Control-Allow-Origin", "*");
-	//response.header("Access-Control-Allow-Headers", "X-Requested-With");
 
 	var jsondata = "Nothing was retrieved";
-	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
-		jsondata = "In needle.get";
+	needle.get('http://tuftsdev.github.io/WebProgramming/assignments/lab-mbta3.html', function(error, res) {
+		//jsondata = "In needle.get";
 	  	if (!error && res.statusCode == 200) {
-	    		//console.log("[" + res.body + "]");
 	  		jsondata = res.body;
 	  	}
 	  	else
 	  		jsondata = "error: " + error + " status: " + res.statusCode;
 	});
-	/*
-	function get_schedule() {
-		if (req.readyState == 4 && req.status == 200) {
-			jsondata = req.responseText;
-		}
-	}
-	*/
-	response.set('Content-Type', 'text/plain');
+	
+	response.set('Content-Type', 'text/html');
 	response.send(jsondata);
 });
 

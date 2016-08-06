@@ -40,8 +40,8 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/redline.json', function(request, response) {
-	response.header("Access-Control-Allow-Origin", "*");
-	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+	//response.header("Access-Control-Allow-Origin", "*");
+	//response.header("Access-Control-Allow-Headers", "X-Requested-With");
 
 	var jsondata = "Nothing was retrieved";
 	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {

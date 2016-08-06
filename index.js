@@ -5,7 +5,7 @@ var app = express();
 var cors = require('cors');
 app.use(cors());
 
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+var needle = require('needle');
 
 /*
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mbta_db';
@@ -43,17 +43,20 @@ app.get('/redline.json', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
 	response.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-	var req = new XMLHttpRequest();
-	req.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
-	req.onreadystatechange = get_schedule;
-	req.send(null);
-
 	var jsondata;
+	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
+	  	if (!error && res.statusCode == 200) {
+	    		console.log("[" + res.body + "]");
+	  	}
+	  	jsondata = res.body
+	});
+	/*
 	function get_schedule() {
 		if (req.readyState == 4 && req.status == 200) {
 			jsondata = req.responseText;
 		}
 	}
+	*/
 	response.set('Content-Type', 'text/html');
 	response.send("<p>" + jsondata + "</p>");
 });

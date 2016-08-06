@@ -5,11 +5,15 @@ var app = express();
 var cors = require('cors');
 app.use(cors());
 
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+
+/*
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mbta_db';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	db = databaseConnection;
 });
+*/
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -36,6 +40,9 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/redline.json', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+
 	var req = new XMLHttpRequest();
 	req.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
 	req.onreadystatechange = get_schedule;

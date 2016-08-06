@@ -46,9 +46,9 @@ app.get('/redline.json', function(request, response) {
 	var jsondata;
 	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
 	  	if (!error && res.statusCode == 200) {
-	    		console.log("[" + res.body + "]");
+	    		//console.log("[" + res.body + "]");
+	  		jsondata = res.body;
 	  	}
-	  	jsondata = res.body
 	});
 	/*
 	function get_schedule() {

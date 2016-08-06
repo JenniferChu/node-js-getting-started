@@ -60,8 +60,8 @@ app.get('/redline.json', function(request, response) {
 		}
 	}
 	*/
-	response.set('Content-Type', 'text/html');
-	response.send("<p>" + jsondata + "</p>");
+	response.set('Content-Type', 'text/plain');
+	response.send(jsondata);
 });
 
 

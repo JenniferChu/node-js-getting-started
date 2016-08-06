@@ -54,8 +54,8 @@ app.get('/redline.json', function(request, response) {
 			jsondata = req.responseText;
 		}
 	}
-	response.set('Content-Type', 'text/plain');
-	response.send(jsondata);
+	response.set('Content-Type', 'text/html');
+	response.send("<p>" + jsondata + "</p>");
 });
 
 

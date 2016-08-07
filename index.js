@@ -42,7 +42,7 @@ app.listen(app.get('port'), function() {
 app.get('/redline.json', function(request, response) {
 
 	var jsondata = "Nothing was retrieved";
-	needle.get('http://tuftsdev.github.io/WebProgramming/assignments/lab-mbta3.html', function(error, res) {
+	needle.get('http://developer.mbta.com/lib/rthr/red.json', function(error, res) {
 		//jsondata = "In needle.get";
 	  	if (!error && res.statusCode == 200) {
 	  		jsondata = res.body;
@@ -51,7 +51,7 @@ app.get('/redline.json', function(request, response) {
 	  		jsondata = "error: " + error + " status: " + res.statusCode;
 	});
 	
-	response.set('Content-Type', 'text/html');
+	response.set('Content-Type', 'text/plain');
 	response.send(jsondata);
 });
 

@@ -40,10 +40,11 @@ app.get('/redline.json', function(request, response) {
 			response.set('Content-Type', 'text/plain');
 			response.send(jsondata);
 	  	}
-	  	else
+	  	else {
 	  		jsondata = "error: " + error + " status: " + res.statusCode;
 	  		response.set('Content-Type', 'application/json');
 			response.send(jsondata);
+		}
 	});
 	
 });
